@@ -108,11 +108,15 @@
         body.dark-mode input[type="password"] {
             background-color: #0e0e0e;
             color: #e8eaed;
-            border-color: #a8c7fa;
+            border-color: #;
         }
         
         input[type="text"]:focus, input[type="password"]:focus {
             border: 2px solid #1a73e8;
+        }
+        
+        body.dark-mode input[type="text"]:focus, input[type="password"]:focus {
+            border: 2px solid #a8c7fa;
         }
         
         .error {
@@ -133,12 +137,16 @@
         }
         
         .forgot-email {
-            color: #a8c7fa;
+            color: #0b57d0;
             font-size: 14px;
             font-weight: 500;
             text-decoration: none;
             display: block;
             margin-bottom: 40px;
+        }
+        
+        body.dark-mode .forgot-email {
+          color: #a8c7fa;
         }
         
         .forgot-email:hover {
@@ -151,6 +159,7 @@
             margin-bottom: 30px;
             line-height: 1.5;
             transition: color 0.3s ease;
+            font-family: "Google Sans", roboto, "Noto Sans Myanmar UI", arial, sans-serif;
         }
         
         body.dark-mode .note {
@@ -158,8 +167,13 @@
         }
         
         .note a {
-            color: #a8c7fa;
+            color: #0b57d0;
             text-decoration: none;
+            font-family: "Google Sans", roboto, "Noto Sans Myanmar UI", arial, sans-serif;
+        }
+        
+        body.dark-mode .note a {
+            color: #a8c7fa;
         }
         
         .note a:hover {
@@ -174,27 +188,40 @@
         }
         
         .create-account {
-            color: #a8c7fa;
+            color: #0b57d0;
             font-weight: 500;
             text-decoration: none;
             font-size: 14px;
+            font-family: "Google Sans", roboto, "Noto Sans Myanmar UI", arial, sans-serif;
+            position: relative;
         }
         
         .create-account:hover {
             text-decoration: underline;
         }
         
+        body.dark-mode .create-account {
+          color:#a8c7fa;
+        }
+        
         .button {
-            background-color: #a8c7fa;
-            color: #062e6f;
+            background-color: #0b57d0;
+            color: #ffffff;
             border: none;
-            border-radius: 4px;
+            border-radius: 20px;
             padding: 10px 24px;
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 800;
             cursor: pointer;
             transition: background-color 0.2s;
+            transform: translateY(-50%);
         }
+        
+        body.dark-mode .button {
+            background-color: #a8c7fa;
+            color: #062e6f;
+        }
+        
         
         .button:hover {
             background-color: #1b66c9;
@@ -285,7 +312,7 @@
                 
                 <br><br>
                 
-                <input type="checkbox" onclick="myFunction()"> Show Password
+                  <label class="input-label"><input type="checkbox" onclick="myFunction()">&nbsp;&nbsp;&nbsp;Show password</label>
 
                 <script>
                     function myFunction() {
