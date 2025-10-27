@@ -71,16 +71,16 @@
         
         /* ===== MAIN CONTAINER ===== */
         .container {
-            width: 480px;
+            max-width: 480px;
+            width: 100%;
             margin: 0 auto;
-            padding: 0 auto;
+            padding: 0;
             border: 1px solid transparent;
             border-radius: 8px;
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: auto;
-
+            justify-content: flex-start;
         }
         
         /* ===== LOGO STYLES ===== */
@@ -134,7 +134,10 @@
             justify-content: center;
             gap: 15px;
             cursor: pointer;
-            width: 280px;
+            width: 100%;
+            max-width: 280px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .info-text {
@@ -256,7 +259,7 @@
         }
         
         .footer-content {
-            max-width: auto;
+            max-width: 100%;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -292,17 +295,104 @@
         
         /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 480px) {
-            .container {
+            body {
                 padding: 10px;
+            }
+            
+            .container {
+                max-width: 100%;
             }
             
             .card {
                 padding: 20px;
             }
             
+            h1 {
+                font-size: 24px;
+            }
+            
+            .subtitle {
+                font-size: 13px;
+            }
+            
+            .email-display {
+                max-width: 100%;
+                font-size: 12px;
+                gap: 10px;
+            }
+            
+            .info-text {
+                font-size: 13px;
+            }
+            
+            .floating-input input {
+                font-size: 14px;
+            }
+            
+            .floating-input label {
+                font-size: 14px;
+            }
+            
+            .floating-input input:focus ~ label,
+            .floating-input input:not(:placeholder-shown) ~ label {
+                font-size: 11px;
+            }
+            
+            .links .link {
+                font-size: 13px;
+                margin-right: 12px;
+            }
+            
+            .next-btn {
+                font-size: 13px;
+                padding: 8px 20px;
+            }
+            
             .footer-content {
                 flex-direction: column;
                 gap: 15px;
+            }
+            
+            .footer-links {
+                gap: 16px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            body {
+                padding: 5px;
+            }
+            
+            .card {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 22px;
+            }
+            
+            .subtitle {
+                font-size: 12px;
+            }
+            
+            .email-display {
+                padding: 5px;
+                gap: 8px;
+            }
+            
+            .actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .next-btn {
+                width: 100%;
+            }
+            
+            .links {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
             }
         }
         
