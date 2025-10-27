@@ -10,20 +10,20 @@
         :root {
             /* Light theme variables */
             --bg-color: #fff;
-            --text-color: #202124;
+            --text-color: #0e0e0e;
             --card-bg: #fff;
-            --card-border: #dadce0;
-            --subtitle-color: #5f6368;
+            --card-border: transparent;
+            --subtitle-color: #0e0e0e;
             --email-bg: #fff;
-            --email-border: #dadce0;
-            --input-border: #dadce0;
+            --email-border: #0e0e0e;
+            --input-border: #0e0e0e;
             --input-focus: #1a73e8;
             --link-color: #1a73e8;
             --button-bg: #1a73e8;
             --button-hover: #1765cc;
-            --footer-bg: #f2f2f2;
-            --footer-border: #dadce0;
-            --footer-text: #5f6368;
+            --footer-bg: #fff;
+            --footer-border: #fff;
+            --footer-text: #0e0e0e;
             --timer-color: #1a73e8;
             --icon-color: #5f6368;
         }
@@ -31,23 +31,23 @@
         /* Dark theme variables */
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg-color: #202124;
+                --bg-color: #0e0e0e;
                 --text-color: #e8eaed;
-                --card-bg: #202124;
-                --card-border: #5f6368;
-                --subtitle-color: #9aa0a6;
-                --email-bg: #202124;
-                --email-border: #5f6368;
-                --input-border: #5f6368;
+                --card-bg: #0e0e0e;
+                --card-border: transparent;
+                --subtitle-color: #fff;
+                --email-bg: #0e0e0e;
+                --email-border: #f2f2f2;
+                --input-border: #f2f2f2;
                 --input-focus: #8ab4f8;
                 --link-color: #8ab4f8;
                 --button-bg: #8ab4f8;
                 --button-hover: #a8c7fa;
-                --footer-bg: #171717;
-                --footer-border: #3c4043;
-                --footer-text: #9aa0a6;
+                --footer-bg: #0e0e0e;
+                --footer-border: #0e0e0e;
+                --footer-text: #fff;
                 --timer-color: #8ab4f8;
-                --icon-color: #9aa0a6;
+                --icon-color: #fff;
             }
         }
 
@@ -57,7 +57,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            transition: background-color 0.1s ease, color 0.1s ease, border-color 0.1s ease;
         }
         
         body {
@@ -66,6 +66,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            padding: 20px;
         }
         
         /* ===== MAIN CONTAINER ===== */
@@ -73,11 +74,13 @@
             max-width: 450px;
             width: 100%;
             margin: 0 auto;
-            padding: 20px;
+            padding: 48px 40px 36px;
+            border: 1px solid transparent;
+            border-radius: 8px;
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: left;
         }
         
         /* ===== LOGO STYLES ===== */
